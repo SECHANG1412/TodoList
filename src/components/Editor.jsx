@@ -1,8 +1,10 @@
-import React, { useRef, useState } from 'react';
-import './Editor.css';
+import { useRef, useState, useContext } from "react";
+import "./Editor.css";
+import { TodoContext } from "../App";
 
-const Editor = ({ onCreate }) => {
-  const [content, setContent] = useState('');
+const Editor = () => {
+  const { onCreate } = useContext(TodoContext);
+  const [content, setContent] = useState("");
   const inputRef = useRef();
 
   const onChangeContent = (e) => {
@@ -16,14 +18,14 @@ const Editor = ({ onCreate }) => {
   };
 
   const onSubmit = () => {
-    if (content === '') {
+    if (content === "") {
       inputRef.current.focus();
       return;
     }
     onCreate(content);
-    setContent('');
+    setContent("");
   };
-  
+
   return (
     <div className="Editor">
       <input
