@@ -23,6 +23,7 @@ const Editor = ({ onCreate }) => {
     onCreate(content);
     setContent('');
   };
+  
   return (
     <div className="Editor">
       <input
