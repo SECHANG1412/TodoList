@@ -1,0 +1,10 @@
+$null
+* {
+  font-family: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}

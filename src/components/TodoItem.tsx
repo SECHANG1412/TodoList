@@ -1,0 +1,29 @@
+import "./TodoItem.css";
+import { memo, useContext } from "react";
+import { TodoDispatchContext } from "../App";
+import type { Todo } from "../types";
+
+type TodoItemProps = Todo;
+
+const TodoItem = ({ id, isDone, content, date }: TodoItemProps) => {
+  const { onUpdate, onDelete } = useContext(TodoDispatchContext);
+
+  const onChangeCheckbox = () => {
+    onUpdate(id);
+  };
+
+  const onClickDeleteButton = () => {
+    onDelete(id);
+  };
+
+  return (
+    <div className="TodoItem">
+      <input onChange={onChangeCheckbox} readOnly checked={isDone} type="checkbox" />
+      <div className="content">{content}</div>
+      <div className="date">{new Date(date).toLocaleDateString()}</div>
+      <button onClick={onClickDeleteButton}>삭제</button>
+    </div>
+  );
+};
+
+export default memo(TodoItem);
